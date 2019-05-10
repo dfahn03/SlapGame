@@ -1,0 +1,9 @@
+body, html {
+  height: 100vh;
+}
+.bg {
+  background-image: url(/assets/bg-4.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
