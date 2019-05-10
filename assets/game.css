@@ -1,9 +1,18 @@
-body, html {
+body {
   height: 100vh;
-}
-.bg {
-  background-image: url(/assets/bg-4.jpg);
+  background-image: url(/assets/bg-7.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+.templar-image {
+  height: 450px;
+  margin-left: 115px;
+
+}
+.headspacing {
+  margin-left: 150px;
+}
+.headspacing2 {
+  margin-left: 25px;
 }
