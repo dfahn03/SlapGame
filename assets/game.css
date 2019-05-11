@@ -12,14 +12,14 @@ body {
 }
 .templar-image {
   height: 60vh;
-  padding-left: 10vw;
-
+  padding-left: 2vw;
 }
 .headspacing {
   margin-left: 2.5vw;
 }
-.buttons1 {
-  margin-left: 10vw;
+.buttons {
+  margin-left: 22vw;
+  margin-bottom: 2vh;
 }
 
 

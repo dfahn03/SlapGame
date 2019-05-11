@@ -12,17 +12,6 @@ let targets = [{
     stab: 10,
     doublestab: 15,
   }
-}, {
-  name: 'Templar',
-  health: 100,
-  death: 0,
-  defenses: ['Vulnerable', 'Parry', 'Shield'],
-  strikes: 0,
-  attacks: {
-    punch: 5,
-    stab: 10,
-    doublestab: 15,
-  }
 }]
 function punch() {
   targets[activeTarget].strikes++
@@ -37,7 +26,7 @@ function stab() {
   targets[activeTarget].strikes++
   // targets.health -= 5
   if (targets[activeTarget].strikes > 0) {
-    targets[activeTarget].health -= 10
+    targets[activeTarget].health -= targets[activeTarget].attacks.stab
   }
   updateTarget()
 }
@@ -46,7 +35,7 @@ function doubleStab() {
   targets[activeTarget].strikes++
   // targets.health -= 5
   if (targets[activeTarget].strikes > 0) {
-    targets[activeTarget].health -= 15
+    targets[activeTarget].health -= targets[activeTarget].attacks.doublestab
   }
   updateTarget()
 }
@@ -84,6 +73,7 @@ function setActiveTarget(index) {
 function reset() {
   targets[activeTarget].health = 100;
   targets[activeTarget].strikes = 0;
+  // targets[activeTarget].defenses[0];
   // document.getElementById('defenses').innerText = targets.defenses['0']
   updateTarget()
 }
