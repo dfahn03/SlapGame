@@ -16,7 +16,7 @@
   <header class="container">
     <div class="row">
       <div class="col-11 text-danger d-flex pt-4 mt-4 justify-content-start head1">
-        <h1 class="">Templar Knight</h1>
+        <h1 id="name">Templar Knight</h1>
       </div>
       <div class="col-1 d-flex justify-content-center align-items-end pt-4 mt-4">
         <button onclick="reset()" class="btn btn-light text-info mr-2">Reset</button>
@@ -25,7 +25,7 @@
         <h2>Health:<span id="health" class="ml-5">100</span> </h2>
       </div>
       <div class="col-12 text-white headspacing d-flex">
-        <h2>Defense:<span id="defenses" class="ml-3">None</span> </h2>
+        <h2>Defense:<span id="defenses" class="ml-3">Vulnerable</span> </h2>
       </div>
       <div class="col-12 text-white headspacing d-flex">
         <h2>Strikes: <span id="strikes" class="ml-5">0</span></h2>
@@ -44,8 +44,8 @@
       </div>
       <div class="row">
         <div class="col-12 d-flex justify-content-center align-items-center mt-4 ml-1">
-          <button onclick="parry()" class="btn btn-success text-dark ml-2">Parry</button>
-          <button onclick="shield()" class="btn btn-success text-dark ml-2">Shield</button>
+          <button onclick="parry()" class="btn btn-success text-dark ml-2" id="parry">Parry</button>
+          <button onclick="shield()" class="btn btn-success text-dark ml-2" id="shield">Shield</button>
         </div>
       </div>
     </div>

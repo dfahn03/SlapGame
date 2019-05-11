@@ -1,9 +1,10 @@
 // let health = 100
 
 let target = {
-  name: 'Templar',
+  name: 'Templar Knight',
   health: 100,
   death: 0,
+  defenses: ['Vulnerable', 'Parry', 'Shield'],
   strikes: 0,
 }
 
@@ -38,6 +39,10 @@ function updateTarget() {
   document.getElementById('health').innerText = target.health
   document.getElementById('strikes').innerText = target.strikes
   if (target.health <= target.death) {
+    document.getElementById('health').innerText = target.death
+  } else {
+  }
+  if (target.health <= target.death) {
     document.getElementById('punch').disabled = true;
   } else {
     document.getElementById('punch').disabled = false;
@@ -58,17 +63,19 @@ function updateTarget() {
 function reset() {
   target.health = 100;
   target.strikes = 0;
+  // document.getElementById('defenses').innerText = target.defenses['0']
   updateTarget()
 }
 
 //when pushed punch = 2 damage, stab = 5 & doubleStab = 10
 
 function parry() {
-  
-  if (target.health == 0)
-  
-
-// }
+  if (onclick == true) {
+    document.getElementById('parry').disabled = true;
+  } else {
+    document.getElementById('parry').disabled = false;
+  }
+}
 
 //Wants:
 
