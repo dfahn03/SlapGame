@@ -69,13 +69,13 @@ function reset() {
 
 //when pushed punch = 2 damage, stab = 5 & doubleStab = 10
 
-function parry() {
-  if (onclick == true) {
-    document.getElementById('parry').disabled = true;
-  } else {
-    document.getElementById('parry').disabled = false;
-  }
-}
+// function parry() {
+//   if (onclick == true) {
+//     document.getElementById('parry').disabled = true;
+//   } else {
+//     document.getElementById('parry').disabled = false;
+//   }
+// }
 
 //Wants:
 
