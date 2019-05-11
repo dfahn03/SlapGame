@@ -3,6 +3,7 @@
 let target = {
   name: 'Templar',
   health: 100,
+  death: 0,
   strikes: 0,
 }
 
@@ -36,6 +37,21 @@ function doubleStab() {
 function updateTarget() {
   document.getElementById('health').innerText = target.health
   document.getElementById('strikes').innerText = target.strikes
+  if (target.health <= target.death) {
+    document.getElementById('punch').disabled = true;
+  } else {
+    document.getElementById('punch').disabled = false;
+  }
+  if (target.health <= target.death) {
+    document.getElementById('stab').disabled = true;
+  } else {
+    document.getElementById('stab').disabled = false;
+  }
+  if (target.health <= target.death) {
+    document.getElementById('double-stab').disabled = true;
+  } else {
+    document.getElementById('double-stab').disabled = false;
+  }
 }
 
 //reset function
@@ -45,12 +61,12 @@ function reset() {
   updateTarget()
 }
 
-function parry() {
-  target.strikes++
-
+// function parry() {
+//   target.strikes++
+//   if (target.health == 0)
   //when pushed punch = 2 damage, stab = 5 & doubleStab = 10
 
-}
+// }
 
 //Wants:
 
