@@ -5,14 +5,23 @@ let targets = [{
   name: 'Templar Knight',
   health: 100,
   death: 0,
-  defenses: ['Vulnerable', 'Parry', 'Shield'],
+  defenses: ['Vulnerable', 'Parry', 'Sword Block', 'Shield'],
+  defenseIndex: 0,
   strikes: 0,
-  attacks: {
-    punch: 5,
-    stab: 10,
-    doublestab: 15,
-  }
+  items: [
+
+  ]
+}
 }]
+
+let items = {
+  parry = { name: 'Parry', modifier: 3, description: 'It blocks....kind of!' }
+  swordBlock= { name: 'Sword Block', modifier: 5, description: 'I am not strong enough!' }
+  Shield = { name: 'Parry', modifier: 10, description: 'HAHA....oohh wait....!' }
+}
+
+
+
 function punch() {
   targets[activeTarget].strikes++
   // targets.health -= 5
@@ -43,6 +52,7 @@ function doubleStab() {
 function updateTarget() {
   document.getElementById('health').innerText = targets[activeTarget].health;
   document.getElementById('strikes').innerText = targets[activeTarget].strikes;
+  document.getElementById('defenses').innerText = targets[activeTarget].defenses[targets[activeTarget].defenseIndex]
   if (targets[activeTarget].health <= targets[activeTarget].death) {
     document.getElementById('health').innerText = targets[activeTarget].death
   } else {
@@ -73,7 +83,7 @@ function setActiveTarget(index) {
 function reset() {
   targets[activeTarget].health = 100;
   targets[activeTarget].strikes = 0;
-  // targets[activeTarget].defenses[0];
+  targets[activeTarget].defenseIndex = 0;
   // document.getElementById('defenses').innerText = targets.defenses['0']
   updateTarget()
 }
@@ -81,13 +91,14 @@ function reset() {
 //when pushed punch = 2 damage, stab = 5 & doubleStab = 10
 
 // function parry() {
-//   if (onclick == true) {
+//   targets[activeTarget].defenseIndex++
+//   if (targets[activeTarget].defenseIndex == targets[activeTarget].defenses.length[1]) {
 //     document.getElementById('parry').disabled = true;
 //   } else {
 //     document.getElementById('parry').disabled = false;
 //   }
 // }
-
+//cats[activeCat].moodIndex == cats[activeCat].moods.length - 1
 //Wants:
 
 // 1) When Templar Knight reaches 0 so "Well done Assassin!"
