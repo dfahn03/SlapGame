@@ -3,13 +3,13 @@
 let target = {
   name: 'Templar',
   health: 100,
-  hits: 0,
+  strikes: 0,
 }
 
 function punch() {
   target.hits++
   // target.health -= 5
-  if (target.hits > 0) {
+  if (target.strikes > 0) {
     target.health -= 5
   }
   updateTarget()
@@ -17,7 +17,7 @@ function punch() {
 
 function updateTarget() {
   document.getElementById('health').innerText = target.health
-  document.getElementById('hits').innerText = target.hits
+  document.getElementById('strikes').innerText = target.strikes
 }
 
 
