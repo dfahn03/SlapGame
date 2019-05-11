@@ -61,15 +61,18 @@ function reset() {
   updateTarget()
 }
 
-// function parry() {
-//   target.strikes++
-//   if (target.health == 0)
-  //when pushed punch = 2 damage, stab = 5 & doubleStab = 10
+//when pushed punch = 2 damage, stab = 5 & doubleStab = 10
+
+function parry() {
+  
+  if (target.health == 0)
+  
 
 // }
 
 //Wants:
 
-//1) When - health > 60 = color is green; 60 > health > 30 = color yellow; health < 30 color = red (flashing) 
+// 1) When Templar Knight reaches 0 so "Well done Assassin!"
+//     A) Show a kill cut scene gif
 
-//2)
+//2)When - health > 60 = color is green; 60 > health > 30 = color yellow; health < 30 color = red (flashing)
