@@ -16,7 +16,7 @@ function punch() {
 }
 
 function stab() {
-  target.strickes++
+  target.strikes++
   // target.health -= 5
   if (target.strikes > 0) {
     target.health -= 10
@@ -28,7 +28,7 @@ function doubleStab() {
   target.strikes++
   // target.health -= 5
   if (target.strikes > 0) {
-    target.health -= 10
+    target.health -= 15
   }
   updateTarget()
 }
@@ -39,5 +39,8 @@ function updateTarget() {
 }
 
 
+//Wants:
 
-// document.getElementById('hits').innerText = target.health
+//1) When - health > 60 = color is green; 60 > health > 30 = color yellow; health < 30 color = red (flashing) 
+
+//2)
