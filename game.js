@@ -1,69 +1,90 @@
 // let health = 100
+let activeTarget = 0;
 
-let target = {
+let targets = [{
   name: 'Templar Knight',
   health: 100,
   death: 0,
   defenses: ['Vulnerable', 'Parry', 'Shield'],
   strikes: 0,
-}
-
+  attacks: {
+    punch: 5,
+    stab: 10,
+    doublestab: 15,
+  }
+}, {
+  name: 'Templar',
+  health: 100,
+  death: 0,
+  defenses: ['Vulnerable', 'Parry', 'Shield'],
+  strikes: 0,
+  attacks: {
+    punch: 5,
+    stab: 10,
+    doublestab: 15,
+  }
+}]
 function punch() {
-  target.strikes++
-  // target.health -= 5
-  if (target.strikes > 0) {
-    target.health -= 5
+  targets[activeTarget].strikes++
+  // targets.health -= 5
+  if (targets[activeTarget].strikes > 0) {
+    targets[activeTarget].health -= targets[activeTarget].attacks.punch
   }
   updateTarget()
 }
 
 function stab() {
-  target.strikes++
-  // target.health -= 5
-  if (target.strikes > 0) {
-    target.health -= 10
+  targets[activeTarget].strikes++
+  // targets.health -= 5
+  if (targets[activeTarget].strikes > 0) {
+    targets[activeTarget].health -= 10
   }
   updateTarget()
 }
 
 function doubleStab() {
-  target.strikes++
-  // target.health -= 5
-  if (target.strikes > 0) {
-    target.health -= 15
+  targets[activeTarget].strikes++
+  // targets.health -= 5
+  if (targets[activeTarget].strikes > 0) {
+    targets[activeTarget].health -= 15
   }
   updateTarget()
 }
 
 function updateTarget() {
-  document.getElementById('health').innerText = target.health
-  document.getElementById('strikes').innerText = target.strikes
-  if (target.health <= target.death) {
-    document.getElementById('health').innerText = target.death
+  document.getElementById('health').innerText = targets[activeTarget].health;
+  document.getElementById('strikes').innerText = targets[activeTarget].strikes;
+  if (targets[activeTarget].health <= targets[activeTarget].death) {
+    document.getElementById('health').innerText = targets[activeTarget].death
   } else {
   }
-  if (target.health <= target.death) {
+  if (targets[activeTarget].health <= targets[activeTarget].death) {
     document.getElementById('punch').disabled = true;
   } else {
     document.getElementById('punch').disabled = false;
   }
-  if (target.health <= target.death) {
+  if (targets[activeTarget].health <= targets[activeTarget].death) {
     document.getElementById('stab').disabled = true;
   } else {
     document.getElementById('stab').disabled = false;
   }
-  if (target.health <= target.death) {
+  if (targets[activeTarget].health <= targets[activeTarget].death) {
     document.getElementById('double-stab').disabled = true;
   } else {
     document.getElementById('double-stab').disabled = false;
   }
 }
 
+function setActiveTarget(index) {
+  activeTarget = index;
+  updateTarget()
+}
+
 //reset function
 function reset() {
-  target.health = 100;
-  target.strikes = 0;
-  // document.getElementById('defenses').innerText = target.defenses['0']
+  targets[activeTarget].health = 100;
+  targets[activeTarget].strikes = 0;
+  // document.getElementById('defenses').innerText = targets.defenses['0']
   updateTarget()
 }
 
