@@ -8,17 +8,23 @@ let targets = [{
   defenses: ['Vulnerable', 'Parry', 'Sword Block', 'Shield'],
   defenseIndex: 0,
   strikes: 0,
-  items: [
-
-  ]
-}
+  items: [],
+  attacks: {
+    punch: 5,
+    stab: 10,
+    doublestab: 15,
+  }
 }]
 
-let items = {
-  parry = { name: 'Parry', modifier: 3, description: 'It blocks....kind of!' }
-  swordBlock= { name: 'Sword Block', modifier: 5, description: 'I am not strong enough!' }
-  Shield = { name: 'Parry', modifier: 10, description: 'HAHA....oohh wait....!' }
-}
+// function giveParry(items) {
+//   targets[activeTarget].items.push(items.parry[parry]);
+// }
+
+// let items = [{
+//   parry = { name: 'Parry', modifier: 3, description: 'It blocks....kind of!' },
+//   swordBlock = { name: 'Sword Block', modifier: 5, description: 'I am not strong enough!' },
+//   Shield = { name: 'Parry', modifier: 10, description: 'HA HA....oohh wait....!' },
+// }]
 
 
 
@@ -58,7 +64,7 @@ function updateTarget() {
   } else {
   }
   if (targets[activeTarget].health <= targets[activeTarget].death) {
-    document.getElementById('punch').disabled = true;
+    document.getElementById('punch').disabled += true;
   } else {
     document.getElementById('punch').disabled = false;
   }
@@ -72,8 +78,22 @@ function updateTarget() {
   } else {
     document.getElementById('double-stab').disabled = false;
   }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('parry').disabled = true;
+  // } else {
+  //   document.getElementById('parry').disabled = false;
+  // }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('swordBlock').disabled = true;
+  // } else {
+  //   document.getElementById('swordBlock').disabled = false;
+  // }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('shield').disabled = true;
+  // } else {
+  //   document.getElementById('shield').disabled = false;
+  // }
 }
-
 function setActiveTarget(index) {
   activeTarget = index;
   updateTarget()
@@ -104,4 +124,4 @@ function reset() {
 // 1) When Templar Knight reaches 0 so "Well done Assassin!"
 //     A) Show a kill cut scene gif
 
-//2)When - health > 60 = color is green; 60 > health > 30 = color yellow; health < 30 color = red (flashing)
+// 2)When - health > 60 = color is green; 60 > health > 30 = color yellow; health < 30 color = red
