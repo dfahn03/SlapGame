@@ -74,36 +74,36 @@ function updateTarget() {
     document.getElementById('health').innerText = targets[activeTarget].death
   } else {
   }
-  // if (targets[activeTarget].health <= targets[activeTarget].death) {
-  //   document.getElementById('punch').disabled = true;
-  // } else {
-  //   document.getElementById('punch').disabled = false;
-  // }
-  // if (targets[activeTarget].health <= targets[activeTarget].death) {
-  //   document.getElementById('stab').disabled = true;
-  // } else {
-  //   document.getElementById('stab').disabled = false;
-  // }
-  // if (targets[activeTarget].health <= targets[activeTarget].death) {
-  //   document.getElementById('double-stab').disabled = true;
-  // } else {
-  //   document.getElementById('double-stab').disabled = false;
-  // }
-  // if (targets[activeTarget].health <= targets[activeTarget].death) {
-  //   document.getElementById('parry').disabled = true;
-  // } else {
-  //   document.getElementById('parry').disabled = false;
-  // }
-  // if (targets[activeTarget].health <= targets[activeTarget].death) {
-  //   document.getElementById('swordBlock').disabled = true;
-  // } else {
-  //   document.getElementById('swordBlock').disabled = false;
-  // }
-  // if (targets[activeTarget].health <= targets[activeTarget].death) {
-  //   document.getElementById('shield').disabled = true;
-  // } else {
-  //   document.getElementById('shield').disabled = false;
-  // }
+  if (targets[activeTarget].health <= targets[activeTarget].death) {
+    document.getElementById('punch').disabled = true;
+  } else {
+    document.getElementById('punch').disabled = false;
+  }
+  if (targets[activeTarget].health <= targets[activeTarget].death) {
+    document.getElementById('stab').disabled = true;
+  } else {
+    document.getElementById('stab').disabled = false;
+  }
+  if (targets[activeTarget].health <= targets[activeTarget].death) {
+    document.getElementById('double-stab').disabled = true;
+  } else {
+    document.getElementById('double-stab').disabled = false;
+  }
+  if (targets[activeTarget].health <= targets[activeTarget].death) {
+    document.getElementById('parry').disabled = true;
+  } else {
+    document.getElementById('parry').disabled = false;
+  }
+  if (targets[activeTarget].health <= targets[activeTarget].death) {
+    document.getElementById('swordBlock').disabled = true;
+  } else {
+    document.getElementById('swordBlock').disabled = false;
+  }
+  if (targets[activeTarget].health <= targets[activeTarget].death) {
+    document.getElementById('shield').disabled = true;
+  } else {
+    document.getElementById('shield').disabled = false;
+  }
 }
 
 function setActiveTarget(index) {
