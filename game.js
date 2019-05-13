@@ -12,48 +12,75 @@ let targets = [{
   attacks: {
     punch: 5,
     stab: 10,
-    doublestab: 15,
+    doublestab: 20,
   }
 }]
 
-// function giveParry(items) {
-//   targets[activeTarget].items.push(items.parry[parry]);
-// }
 
-// let items = [{
-//   parry = { name: 'Parry', modifier: 3, description: 'It blocks....kind of!' },
-//   swordBlock = { name: 'Sword Block', modifier: 5, description: 'I am not strong enough!' },
-//   Shield = { name: 'Parry', modifier: 10, description: 'HA HA....oohh wait....!' },
-// }]
 
+let items = {
+  parry: 0.8,
+  swordBlock: 0.7,
+  shield: 0.5,
+}
+
+function giveParry() {
+  targets[activeTarget].items.push(items.parry);
+  targets[activeTarget].defenseIndex += 1
+  // if (targets[activeTarget].defenseIndex == 1) {
+  //   document.getElementById('parry').disabled = true;
+  // } else {
+  // }
+  updateTarget()
+}
+
+function giveSwordBlock() {
+  targets[activeTarget].items.push(items.swordBlock);
+  targets[activeTarget].defenseIndex += 2
+  updateTarget()
+}
+
+function giveShield() {
+  targets[activeTarget].items.push(items.shield);
+  targets[activeTarget].defenseIndex += 3
+  updateTarget()
+}
+
+function addMods() {
+  let total = 0
+  for (let i = 0; i < targets[activeTarget].items.length; i++) {
+    let item = targets[activeTarget].items[i];
+    total += item
+  }
+  return total
+}
 
 
 function punch() {
   targets[activeTarget].strikes++
-  // targets.health -= 5
   if (targets[activeTarget].strikes > 0) {
-    targets[activeTarget].health -= targets[activeTarget].attacks.punch
+    targets[activeTarget].health -= targets[activeTarget].attacks.punch * addMods()
   }
   updateTarget()
 }
 
 function stab() {
   targets[activeTarget].strikes++
-  // targets.health -= 5
   if (targets[activeTarget].strikes > 0) {
-    targets[activeTarget].health -= targets[activeTarget].attacks.stab
+    targets[activeTarget].health -= targets[activeTarget].attacks.stab * addMods()
   }
   updateTarget()
 }
 
 function doubleStab() {
   targets[activeTarget].strikes++
-  // targets.health -= 5
   if (targets[activeTarget].strikes > 0) {
-    targets[activeTarget].health -= targets[activeTarget].attacks.doublestab
+    targets[activeTarget].health -= targets[activeTarget].attacks.doublestab * addMods()
   }
   updateTarget()
 }
+
+
 
 function updateTarget() {
   document.getElementById('health').innerText = targets[activeTarget].health;
@@ -64,49 +91,55 @@ function updateTarget() {
   } else {
   }
   if (targets[activeTarget].health <= targets[activeTarget].death) {
-    document.getElementById('punch').disabled += true;
+    document.querySelectorAll('button-disabled').disabled = true;
   } else {
-    document.getElementById('punch').disabled = false;
+    document.querySelectorAll('button-disabled').disabled = false;
   }
-  if (targets[activeTarget].health <= targets[activeTarget].death) {
-    document.getElementById('stab').disabled = true;
-  } else {
-    document.getElementById('stab').disabled = false;
-  }
-  if (targets[activeTarget].health <= targets[activeTarget].death) {
-    document.getElementById('double-stab').disabled = true;
-  } else {
-    document.getElementById('double-stab').disabled = false;
-  }
-  // if (targets[activeTarget].health <= targets[activeTarget].death) {
-  //   document.getElementById('parry').disabled = true;
-  // } else {
-  //   document.getElementById('parry').disabled = false;
-  // }
-  // if (targets[activeTarget].health <= targets[activeTarget].death) {
-  //   document.getElementById('swordBlock').disabled = true;
-  // } else {
-  //   document.getElementById('swordBlock').disabled = false;
-  // }
-  // if (targets[activeTarget].health <= targets[activeTarget].death) {
-  //   document.getElementById('shield').disabled = true;
-  // } else {
-  //   document.getElementById('shield').disabled = false;
-  // }
 }
+
 function setActiveTarget(index) {
   activeTarget = index;
   updateTarget()
 }
 
-//reset function
 function reset() {
   targets[activeTarget].health = 100;
   targets[activeTarget].strikes = 0;
   targets[activeTarget].defenseIndex = 0;
-  // document.getElementById('defenses').innerText = targets.defenses['0']
   updateTarget()
 }
+
+// if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('button-disabled').disabled = true;
+  // } else {
+  //   document.getElementById('button-disabled').disabled = false;
+  // }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('button-disabled').disabled = true;
+  // } else {
+  //   document.getElementById('button-disabled').disabled = false;
+  // }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('button-disabled').disabled = true;
+  // } else {
+  //   document.getElementById('button-disabled').disabled = false;
+  // }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('button-disabled').disabled = true;
+  // } else {
+  //   document.getElementById('button-disabled').disabled = false;
+  // }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('button-disabled').disabled = true;
+  // } else {
+  //   document.getElementById('button-disabled').disabled = false;
+  // }
+  // let b = targets[activeTarget].health <= targets[activeTarget].death
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   b.setAttribute('disabled', '')
+  // } else {
+  // }
+
 
 //when pushed punch = 2 damage, stab = 5 & doubleStab = 10
 

@@ -6,6 +6,7 @@ body {
   background-position-y: center;
   background-position-x: center;
   background-attachment: fixed;
+  user-select: none;
 }
 .head1 {
   padding-left: 8vw;
