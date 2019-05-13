@@ -1,6 +1,7 @@
 body {
   height: 100vh;
-  background-image: url(/assets/bg-7.jpg);
+  width: 100vw;
+  background-image: url('/assets/bg-2.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: center;

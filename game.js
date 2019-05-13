@@ -47,12 +47,12 @@ function giveShield() {
 }
 
 function addMods() {
-  let total = 1
+  let runningTotal = 1
   for (let i = 0; i < targets[activeTarget].items.length; i++) {
     let item = targets[activeTarget].items[i];
     total += item
   }
-  return total
+  return runningTotal
 }
 
 function punch() {
@@ -135,7 +135,7 @@ function reset() {
 
 function setWinMotto() {
   if (targets[activeTarget].health <= targets[activeTarget].death) {
-    document.querySelector('.win-motto').innerHTML = `Where other men blindly follow the truth, Remember, nothing is true. Where other men are limited by morality or law, Remember, everything is permitted. We work in the dark to serve the light.`
+    document.querySelector('.win-motto').innerText = 'Where other men blindly follow the truth, Remember, nothing is true. Where other men are limited by morality or law, Remember, everything is permitted. We work in the dark to serve the light.'
   }
 }
 
