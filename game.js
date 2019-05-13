@@ -1,4 +1,3 @@
-// let health = 100
 let activeTarget = 0;
 
 let targets = [{
@@ -16,21 +15,15 @@ let targets = [{
   }
 }]
 
-
-
 let items = {
-  parry: 0.8,
-  swordBlock: 0.7,
-  shield: 0.5,
+  parry: -.2,
+  swordBlock: -.3,
+  shield: -.5,
 }
 
 function giveParry() {
   targets[activeTarget].items.push(items.parry);
   targets[activeTarget].defenseIndex += 1
-  // if (targets[activeTarget].defenseIndex == 1) {
-  //   document.getElementById('parry').disabled = true;
-  // } else {
-  // }
   updateTarget()
 }
 
@@ -47,40 +40,31 @@ function giveShield() {
 }
 
 function addMods() {
-  let total = 0
-  for (let i = 0; i < targets[activeTarget].items.length; i++) {
+  let total = 1
+  for (let i = 0; i < targets[activeTarget].items.length; i += 1) {
     let item = targets[activeTarget].items[i];
     total += item
   }
   return total
 }
 
-
 function punch() {
+  targets[activeTarget].health -= targets[activeTarget].attacks.punch * addMods()
   targets[activeTarget].strikes++
-  if (targets[activeTarget].strikes > 0) {
-    targets[activeTarget].health -= targets[activeTarget].attacks.punch * addMods()
-  }
   updateTarget()
 }
 
 function stab() {
+  targets[activeTarget].health -= targets[activeTarget].attacks.stab * addMods()
   targets[activeTarget].strikes++
-  if (targets[activeTarget].strikes > 0) {
-    targets[activeTarget].health -= targets[activeTarget].attacks.stab * addMods()
-  }
   updateTarget()
 }
 
 function doubleStab() {
+  targets[activeTarget].health -= targets[activeTarget].attacks.doublestab * addMods()
   targets[activeTarget].strikes++
-  if (targets[activeTarget].strikes > 0) {
-    targets[activeTarget].health -= targets[activeTarget].attacks.doublestab * addMods()
-  }
   updateTarget()
 }
-
-
 
 function updateTarget() {
   document.getElementById('health').innerText = targets[activeTarget].health;
@@ -90,36 +74,36 @@ function updateTarget() {
     document.getElementById('health').innerText = targets[activeTarget].death
   } else {
   }
-  if (targets[activeTarget].health <= targets[activeTarget].death) {
-    document.getElementById('punch').disabled = true;
-  } else {
-    document.getElementById('punch').disabled = false;
-  }
-  if (targets[activeTarget].health <= targets[activeTarget].death) {
-    document.getElementById('stab').disabled = true;
-  } else {
-    document.getElementById('stab').disabled = false;
-  }
-  if (targets[activeTarget].health <= targets[activeTarget].death) {
-    document.getElementById('double-stab').disabled = true;
-  } else {
-    document.getElementById('double-stab').disabled = false;
-  }
-  if (targets[activeTarget].health <= targets[activeTarget].death) {
-    document.getElementById('parry').disabled = true;
-  } else {
-    document.getElementById('parry').disabled = false;
-  }
-  if (targets[activeTarget].health <= targets[activeTarget].death) {
-    document.getElementById('swordBlock').disabled = true;
-  } else {
-    document.getElementById('swordBlock').disabled = false;
-  }
-  if (targets[activeTarget].health <= targets[activeTarget].death) {
-    document.getElementById('shield').disabled = true;
-  } else {
-    document.getElementById('shield').disabled = false;
-  }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('punch').disabled = true;
+  // } else {
+  //   document.getElementById('punch').disabled = false;
+  // }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('stab').disabled = true;
+  // } else {
+  //   document.getElementById('stab').disabled = false;
+  // }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('double-stab').disabled = true;
+  // } else {
+  //   document.getElementById('double-stab').disabled = false;
+  // }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('parry').disabled = true;
+  // } else {
+  //   document.getElementById('parry').disabled = false;
+  // }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('swordBlock').disabled = true;
+  // } else {
+  //   document.getElementById('swordBlock').disabled = false;
+  // }
+  // if (targets[activeTarget].health <= targets[activeTarget].death) {
+  //   document.getElementById('shield').disabled = true;
+  // } else {
+  //   document.getElementById('shield').disabled = false;
+  // }
 }
 
 function setActiveTarget(index) {
@@ -133,6 +117,13 @@ function reset() {
   targets[activeTarget].defenseIndex = 0;
   updateTarget()
 }
+
+
+// function setWinMotto() {
+//   if (targets[activeTarget].health <= targets[activeTarget].death) {
+//     document.querySelector('win-motto').innerHTML = `Where other men blindly follow the truth, Remember, nothing is true. Where other men are limited by morality or law, Remember, everything is permitted. We work in the dark to serve the light.`
+//   }
+// }
 
 // if (targets[activeTarget].health <= targets[activeTarget].death) {
   //   document.getElementById('punch').disabled = true;
