@@ -50,7 +50,7 @@ function addMods() {
   let runningTotal = 1
   for (let i = 0; i < targets[activeTarget].items.length; i++) {
     let item = targets[activeTarget].items[i];
-    total += item
+    runningTotal += item
   }
   return runningTotal
 }
