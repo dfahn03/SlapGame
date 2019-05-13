@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <header class="container">
+  <header class="container-fluid">
     <div class="row">
       <div class="col-11 text-danger d-flex pt-2 mt-2 justify-content-start head1">
         <h1 id="name">Templar Knight</h1>
@@ -31,26 +31,33 @@
         <h2>Strikes: <span id="strikes" class="ml-5">0</span></h2>
       </div>
       <div class="col-6 d-flex justify-content-start">
-        <img src="/assets/templar-4.png" alt="Templar" class="templar-image">
+        <img src="assets/templar-4.png" alt="Templar" class="templar-image">
       </div>
-      <div class="col-6 offset col-md-6 d-flex justify-content-center align-items-center">
-        <h1 class="win-motto text-white pb-5">Assassino vs Templar</h1>
+      <div class="col-6 offset col-md-6 d-flex justify-content-end align-items-top">
+        <h2 class="win-motto text-white text-center pb-5 pr-5">Assassino vs Templar Knight</h2>
       </div>
     </div>
   </header>
-  <main class="conatiner">
+  <main class="container-fluid">
     <div class="row text-white">
-      <div class="col-12 col-md-4 col-lg-4  d-flex justify-content-center align-items-end ml-1 buttons">
-        <button onclick="punch()" class="btn btn-light text-danger" id="punch">Punch</button>
-        <button onclick="stab()" class="btn btn-light ml-2 text-danger" id="stab">Stab</button>
-        <button onclick="doubleStab()" class="btn btn-light ml-2 text-danger" id="double-stab">Double Stab</button>
+      <div class="col-12 col-md-4 col-lg-4  d-flex justify-content-start align-items-center ml-5 buttons">
+        <button onclick="punch()" class="btn btn-light text-danger disable-buttons reset-buttons"
+          id="punch">Punch</button>
+        <button onclick="stab()" class="btn btn-light ml-2 text-danger disable-buttons reset-buttons"
+          id="stab">Stab</button>
+        <button onclick="doubleStab()" class="btn btn-light ml-2 text-danger disable-buttons reset-buttons"
+          id="double-stab">Double
+          Stab</button>
       </div>
       <div class="row">
-        <div class="col-12 col-md-4 col-lg-1 d-flex justify-content-center align-items-center buttons">
-          <button onclick="giveParry()" class="btn btn-success text-white ml-2" id="parry">Parry</button>
-          <button onclick="giveSwordBlock()" class="btn btn-success text-white ml-2 pl-2 pr-2"
+        <div class="col-12 col-md-4 col-lg-1 d-flex justify-content-start align-items-center buttons">
+          <button onclick="giveParry(this)" class="btn btn-success text-white ml-2 disable-buttons reset-buttons"
+            id="parry">Parry</button>
+          <button onclick="giveSwordBlock(this)"
+            class="btn btn-success text-white ml-2 pl-2 pr-2 disable-buttons reset-buttons"
             id="swordBlock">SwordBlock</button>
-          <button onclick="giveShield()" class="btn btn-success text-white ml-2" id="shield">Shield</button>
+          <button onclick="giveShield(this)" class="btn btn-success text-white ml-2 disable-buttons reset-buttons"
+            id="shield">Shield</button>
         </div>
       </div>
     </div>
